@@ -16,9 +16,9 @@ The Philips Hue app has some neat iOS Shortcuts actions that allow you to turn y
 - **Single Shortcut Light Switch Per Room:**<br> 
 I don’t want two shortcuts for on AND off. I want a single shortcut, so that it takes up less space in my Shortcuts widget on the Today View. (Did anyone know that it’s called the Today View? …)
 - **Needs to be accessible without having to unlock the iPhone:**<br>
-There are apps that let you run shortcuts from the new iOS 16 lock screen widgets. The problem with these is that they open the shortcuts app to run the shortcut. That’s why I’m opting to use the shortcuts widget on the Today View. That way the switches are single swipe away.
+There are apps that let you run shortcuts from the new iOS 16 lock screen widgets. The problem with these is that they open the shortcuts app to run the shortcut. That’s why I’m opting to use the shortcuts widget on the Today View. That way the switches are a single swipe away.
 - **The shortcut needs to complete fast:**<br>
-My goal is to try and at least match the Philips Hue App’s shortcut actions’ times for simple on/off commands. Using [Method 2](#method2) on a Raspberry Pi 4 it is sometimes faster. Using [Method 2](#method2) on am Ubuntu VM it is consistently faster than [Method 1](#method1).
+My goal is to try and at least match the Philips Hue App’s shortcut actions’ times for simple on/off commands. Using [Method 2](#method2) on a Raspberry Pi 4 it is sometimes faster. Using [Method 2](#method2) on an Ubuntu VM it is consistently faster than [Method 1](#method1).
 
 ## Usage
 
@@ -35,8 +35,6 @@ Once we have the memory shortcut, we’ll start by making two shortcuts to get/s
 |:--:|:--:|
 | <img width=220px src="docs/getofficelight.png" alt="getofficelight shortcut"> | <img width=220px src="docs/setofficelight.png" alt="setofficelight shortcut"> |
 | <p>A shortcut that runs the get method on the memory shortcut and returns the value of a variable named after the Philips Hue light.</p> | <p>A shortcut that runs the post method on the memory shortcut to store a On or Off value for the Philips Hue light variable.</p> |
-
-
 
 <p>Once the set/get shortcuts are ready, we can make a third and final shortcut to act as a switch. If it so happens that the Philips Hue light’s state has changed without our shortcut memory knowing, we just need to run the shortcut twice so that it is synced again.</p>
 
