@@ -1,5 +1,5 @@
 # my-hue-lights
-The Philips Hue app has some neat iOS Shortcuts actions that allow you to turn your lights on or off and more. This is a fun opportunity to set up some custom shortcuts to accomplish a simple light switch.
+The Philips Hue app has some neat iOS Shortcuts actions that allow you to turn your lights on or off and more, but I want a single shortcut that acts as a light switch. This is a fun opportunity to set up some powerful custom iOS shortcuts.
 
 ## Environment Requirements
 -	1+ Philips Hue Light Bulb(s)
