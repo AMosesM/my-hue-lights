@@ -1,0 +1,5 @@
+bridges:
+  office:
+    url: abcdef123456
+  living-room:
+    url: abcdef123456

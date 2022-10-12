@@ -1,0 +1,10 @@
+flask
+gizeh
+gunicorn
+huesdk
+imageio
+matplotlib
+moviepy
+pyyaml
+webcolors
+wheel
