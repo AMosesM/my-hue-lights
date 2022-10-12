@@ -31,51 +31,37 @@ To make a switch shortcut we need to be able to do one of two things: Remember t
 
 Once we have the memory shortcut, we’ll start by making two shortcuts to get/set the value of a light/room. See `/iOS` for pre-built shortcuts.
 
-<style>
-figure {
-    width: 220px;
-    padding: 0px;
-    margin: 10px;
-    display: inline-block;
-    position:relative;
-    margin: 0 auto;
-}
-figcaption {
-    font-size: 9pt;
-}
-</style>
-
-<div style="display: flex; width: 80%; margin-left: auto; margin-right: auto;">
-    <figure>
-        <img src="docs/getofficelight.png" alt="getofficelight shortcut">
-        <figcaption>A shortcut that runs the get method on the memory shortcut and returns the value of a variable named after the Philips Hue light.</figcaption>
-    </figure>
-    <figure>
-        <img src="docs/setofficelight.png" alt="setofficelight shortcut">
-        <figcaption>A shortcut that runs the post method on the memory shortcut to store a On or Off value for the Philips Hue light variable.</figcaption>
-    </figure>
-</div>
+<table>
+    <tr>
+        <td><img width=220px src="docs/getofficelight.png" alt="getofficelight shortcut"></td>
+        <td><img width=220px src="docs/setofficelight.png" alt="setofficelight shortcut"></td>
+    </tr>
+    <tr>
+        <td><p>A shortcut that runs the get method on the memory shortcut and returns the value of a variable named after the Philips Hue light.</p></td>
+        <td><p>A shortcut that runs the post method on the memory shortcut to store a On or Off value for the Philips Hue light variable.</p></td>
+    </tr>
+</table>
 <br></br>
 
 <p>Once the set/get shortcuts are ready, we can make a third and final shortcut to act as a switch. If it so happens that the Philips Hue light’s state has changed without our shortcut memory knowing, we just need to run the shortcut twice so that it is synced again.</p>
 
-<div style="display: flex; width: 80%; margin-left: auto; margin-right: auto;">
-    <figure>
-        <img src="docs/officelightsswitch1.1.png" alt="officelightsswitch1 shortcut">
-        <figcaption>If the office light is On, set the memory value to Off. Call the Philips Hue shortcut action to turn off the lights in a room or light.</figcaption>
-    </figure>
-    <figure>
-        <img src="docs/officelightsswitch1.2.png" alt="officelightsswitch1 shortcut">
-        <figcaption>If the light is Off, set the memory value to On. call the Philips Hue shortcut action to turn on the lights in a room or light.</figcaption>
-    </figure>
-</div>
+<table>
+    <tr>
+        <td><img width=220px src="docs/officelightsswitch1.1.png" alt="officelightsswitch1 shortcut"></td>
+        <td><img width=220px src="docs/officelightsswitch1.2.png" alt="officelightsswitch1 shortcut"></td>
+    </tr>
+    <tr>
+        <td><p>If the office light is On, set the memory value to Off. Call the Philips Hue shortcut action to turn off the lights in a room or light.</p></td>
+        <td><p>If the light is Off, set the memory value to On. call the Philips Hue shortcut action to turn on the lights in a room or light.</p></td>
+    </tr>
+</table>
 <br></br>
 
 <p>And that’s it! The shortcut will ask you to approve the use of other shortcuts, but only the first time you run it. Use the Today View to quickly access your digital light switch! The Philips Hue shortcut actions can sometimes be a little slow. Turning off “Show when run” cuts down on some of the runtime, but then the shortcut provides no feedback to the user.</p>
 
-<div style="display: flex; width: 80%; margin-left: auto; margin-right: auto;">
+<div float="left">
     <figure>
-        <img src="docs/todayview.png" alt="officelightsswitch1 shortcut">
+        <img width=220px src="docs/todayview.png" alt="officelightsswitch1 shortcut">
     </figure>
 </div>
 
@@ -125,38 +111,26 @@ Usually you'll need to clean before you can build again:
 
 Once `my-hue-lights` is running you'll want to take note of the hostname of the computer you're running it on. Set up or download the Shortcut to retrieve the URL to `my-hue-lights`. See `/iOS` for pre-built shortcuts.
 
-<style>
-figure {
-    width: 220px;
-    padding: 0px;
-    margin: 10px;
-    display: inline-block;
-    position:relative;
-    margin: 0 auto;
-}
-figcaption {
-    font-size: 9pt;
-}
-</style>
-
-<div style="display: flex; width: 80%; margin-left: auto; margin-right: auto;">
-    <figure>
-        <img src="docs/myhuelights.png" alt="my-hue-lights shortcut">
-        <figcaption>A shortcut that returns the URL of the <b>my-hue-lights</b> server.</figcaption>
-    </figure>
-    <figure>
-        <img src="docs/lightswitch.png" alt="setofficelight shortcut">
-        <figcaption>A shortcut that sends a POST request to <b>my-hue-lights</b> to switch all lights connected to 'bridge'. Add a 'name' field to specify a specific Light.</figcaption>
-    </figure>
-</div>
+<table>
+    <tr>
+        <td><img width=220px src="docs/myhuelights.png" alt="my-hue-lights shortcut"></td>
+        <td><img width=220px src="docs/lightswitch.png" alt="setofficelight shortcut"></td>
+    </tr>
+    <tr>
+        <td><p>A shortcut that returns the URL of the <b>my-hue-lights</b> server.</p></td>
+        <td><p>A shortcut that sends a POST request to <b>my-hue-lights</b> to switch all lights connected to 'bridge'. Add a 'name' field to specify a specific Light.</p></td>
+    </tr>
+</table>
+    
 <br></br>
 <p><b>my-hue-lights</b> also features a color selection endpoint. There is a very clever way we can use it in our Shortcuts.</p>
-<div style="display: flex; width: 80%; margin-left: auto; margin-right: auto;">
-    <figure>
-        <img src="docs/officelightcolor.png" alt="my-hue-lights shortcut">
-        <figcaption>A shortcut that requests the color_flipbook.gif from <b>my-hue-lights</b>, splits each frame into a jpeg, prompts the user to choose a frame(color) from the list, and POSTs the image to the server to set a bridge/light's color.</figcaption>
-    </figure>
-    <figure>
-        <img src="docs/colorpicker.gif" alt="my-hue-lights shortcut">
-    </figure>
-</div>
+<table>
+    <tr>
+        <td><img width=220px src="docs/officelightcolor.png" alt="my-hue-lights shortcut"><td>
+        <td><img width=220px src="docs/colorpicker_lo.gif" alt="my-hue-lights shortcut"><td>
+    </tr>
+    <tr>
+        <td><p>A shortcut that requests the color_flipbook.gif from <b>my-hue-lights</b>, splits each frame into a jpeg, prompts the user to choose a frame(color) from the list, and POSTs the image to the server to set a bridge/light's color.</p><td>
+    </tr>
+</table>
+    
