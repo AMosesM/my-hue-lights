@@ -9,10 +9,16 @@ VENV_IMAGE_ID=$(shell docker image ls -a | grep $(VENV_NAME) | awk '{ print $$1 
 
 VENV_PREPPED_IMAGE_ID=$(shell docker image ls -a | grep $(VENV_NAME)-prepped | awk '{ print $$1 }' )
 
+ifeq ($(MY_HUE_LIGHTS_CONFIG_PATH),)
+export MY_HUE_LIGHTS_CONFIG_PATH=conf.yaml
+endif
 
 .PHONY venv-prep:
-venv-prep:
+venv-prep: clean-venv-container 
 ifeq (${VENV_PREPPED_IMAGE_ID},)
+	if [ ! -d build ]; then mkdir build; fi
+	echo Using config ${MY_HUE_LIGHTS_CONFIG_PATH}
+	cp ${MY_HUE_LIGHTS_CONFIG_PATH} build/conf.yaml
 	docker build -f Dockerfile.venv -t $(VENV_NAME) .
 	docker run -t -d --name $(VENV_NAME) $(VENV_NAME)
 	docker exec -it $(VENV_NAME) python /opt/app/setup_bridges.py
@@ -21,7 +27,7 @@ ifeq (${VENV_PREPPED_IMAGE_ID},)
 	docker container rm $(VENV_NAME)
 	docker image rm $(VENV_NAME)
 endif
-
+	
 .PHONY build:
 build: venv-prep
 	docker build -f Dockerfile.app -t $(PROD_NAME) .
@@ -63,11 +69,14 @@ ifneq (${PROD_IMAGE_ID},)
 	docker image rm $(PROD_IMAGE_ID)
 endif
 
-.PHONY clean-venv:
-clean-venv: stop-venv
+.PHONY clean-venv-container:
+clean-venv-container: stop-venv
 ifneq (${VENV_CONTAINER_ID},)
 	docker container rm $(VENV_CONTAINER_ID)
 endif
+
+.PHONY clean-venv:
+clean-venv: clean-venv-container
 ifneq (${VENV_IMAGE_ID},)
 	docker image rm $(VENV_IMAGE_ID)
 endif

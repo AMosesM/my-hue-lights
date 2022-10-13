@@ -15,8 +15,7 @@ RUN apt-get -y install ffmpeg
 
 ADD pip.conf /etc
 ADD ./python/ /opt/app
-ADD conf.yaml /opt/app
-
+ADD ./build/conf.yaml /opt/app
 
 ADD requirements.txt .
 RUN pip install -r requirements.txt
